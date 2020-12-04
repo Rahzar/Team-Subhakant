@@ -1,0 +1,85 @@
+
+<!doctype html>
+
+<html>
+<head>
+<style>
+
+    #video {
+        border: 1px solid black;
+        width: 320px;
+        height: 240px;
+    }
+
+    #photo {
+        border: 1px solid black;
+        width: 320px;
+        height: 240px;
+    }
+
+    #canvas {
+        display: none;
+    }
+
+    .camera {
+        width: 340px;
+        display: inline-block;
+    }
+
+    .output {
+        width: 340px;
+        display: inline-block;
+    }
+
+    #startbutton,#uploadbutton {
+        display:inline-block;
+        
+        margin-left: auto;
+        margin-right: auto;
+        bottom: 36px;
+        padding: 5px;
+        background-color: #6a67ce;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        color: rgba(255, 255, 255, 1.0);
+        cursor: pointer;
+    }
+
+    
+
+    .contentarea {
+        font-size: 16px;
+        font-family: Arial;
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="contentarea">
+        <h1>
+            Work Buddy 
+        </h1>
+        <div class="camera">
+            <video id="video">Video stream not available.</video>
+        </div>
+		<form action="/imagecap" method="post">
+			<div><button id="startbutton" type ="submit">Take photo</button></div>
+		</form>
+		
+		<form action="/" method="POST">
+		<input type=file name=file>
+		<div><button id="uploadbutton" type="submit" >Upload photo</button></div>
+		</form>
+		
+        <canvas id="canvas"></canvas>
+        <div>
+            <img src=""{{ captured_image }}"" id="photo" alt="The Image will appear in this here.">
+        </div>
+    </div>
+	
+
+    
+</body>
+
+</html>
